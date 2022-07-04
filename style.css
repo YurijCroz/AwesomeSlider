@@ -20,7 +20,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
     --main-height: 100vh;
     --image-width: 70vw;
     --text-width: 30vw;
-    --hw-arrow: 4rem;
+    --hw-arrow: 6vh;
 }
 
 body{
@@ -29,6 +29,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: auto;
 }
 
 .main-container {
@@ -105,29 +106,29 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 25px;
+    font-size: 2.668vh;
     color: deepskyblue;
     transition: 200ms;
 }
 .arrow:hover {
     color: blue;
-    font-size: 28px;
+    font-size: 2.988vh;
 }
 .arrow:active {
     color: dodgerblue;
-    font-size: 25px;
+    font-size: 2.668vh;
 }
 
 .arrow-up {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 0.533vh;
+    border-bottom-right-radius: 0.533vh;
     left: var(--text-width);
     top: calc(50vh - ((var(--hw-arrow))));
 }
 
 .arrow-down {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: 0.533vh;
+    border-bottom-left-radius: 0.533vh;
     left: calc((var(--text-width)) - (var(--hw-arrow)));
     top: 50vh;
 }

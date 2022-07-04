@@ -12,7 +12,7 @@ let count = 0;
 let max = heightBlock*(amount-1);
 function upFun() {
     count++;
-    if(count>3) {count=0};
+    if(count>(amount-1)) {count=0};
     moveFun();
 }
 function downFun() {
@@ -36,5 +36,14 @@ document.addEventListener('keyup', function(event){
     if(event.code==='ArrowDown') downFun();
 });
 
+let flag = 0;
+document.addEventListener('wheel', (event) => {
+    let target = event.target.closest('.main-container');
+    if(target===null){return;}
+    if(flag==1){return;}
+    event.deltaY > 0 ? downFun() : upFun();
+    flag = 1;
+    setTimeout(()=>flag=0, 700)
+})
+
 window.onload = moveFun;
-//window.onresize = moveFun;
