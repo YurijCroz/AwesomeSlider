@@ -21,6 +21,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
     --image-width: 70vw;
     --text-width: 30vw;
     --hw-arrow: 6vh;
+    --amount-slide: 4;
 }
 
 body{
@@ -29,7 +30,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: auto;
 }
 
 .main-container {
@@ -42,9 +42,8 @@ body{
 
 
 .text-container {
+    flex-direction: column-reverse;
     width: var(--text-width);
-    height: calc(var(--main-height) * 4);
-    transition: 500ms;
 }
 
 .text-block {
@@ -61,37 +60,37 @@ body{
     font-size: calc(14px + 16 * ((100vw - 400px) / (1922 - 400)));
 }
 
-.block1{
+.text-block:nth-child(1){
     background-color: #4158D0;
     background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-
 }
-.block2{
+.text-block:nth-child(2){
     background-color: #2f6bb1;
     background-image: linear-gradient(43deg, #2f6bb1 0%, #8250c8 46%, #f3ff70 100%);
 }
-.block3{
+.text-block:nth-child(3){
     background-color: #2f6bb1;
     background-image: linear-gradient(43deg, #2f6bb1 0%, #8250c8 46%, #f3ff70 100%);
 }
-.block4{
+.text-block:nth-child(4){
     background-color: #c841d0;
     background-image: linear-gradient(43deg, #c841d0 0%, #c85076 46%, #e4ff70 100%);
 }
 
+.images-container, .text-container{
+    height: calc(var(--main-height) * var(--amount-slide));
+    display: flex;
+    transition: all ease-out 500ms;
+}
 
 .images-container {
+    flex-direction: column;
     width: var(--image-width);
-    height: calc(var(--main-height) * 4);
-    transition: 500ms;
 }
-.image-block {
+
+.images-container img{
     height: var(--main-height);
     width: var(--image-width);
-}
-.image-block img{
-    width: 100%;
-    height: 100%;
     object-fit: cover;
     object-position: center;
 }
@@ -123,12 +122,12 @@ body{
     border-top-right-radius: 0.533vh;
     border-bottom-right-radius: 0.533vh;
     left: var(--text-width);
-    top: calc(50vh - ((var(--hw-arrow))));
+    top: calc(50vh - var(--hw-arrow));
 }
 
 .arrow-down {
     border-top-left-radius: 0.533vh;
     border-bottom-left-radius: 0.533vh;
-    left: calc((var(--text-width)) - (var(--hw-arrow)));
+    left: calc(var(--text-width) - var(--hw-arrow));
     top: 50vh;
 }
