@@ -14,7 +14,17 @@ const imagesContainer = document.createElement('div');
 imagesContainer.classList.add('images-container');
 
 textContainer.innerHTML = '<div class="text-block"><h3>Lorem, ipsum.1</h3></div><div class="text-block"><h3>Lorem, ipsum dolor.2</h3></div><div class="text-block"><h3>Lorem, ipsum.3</h3></div><div class="text-block"><h3>Lorem ipsum dolor sit.4</h3></div>';
-imagesContainer.innerHTML = '<img src="./images/1.jpeg" alt="img"><img src="./images/2.jpeg" alt="img"><img src="./images/3.jpeg" alt="img"><img src="./images/4.jpeg" alt="img">';
+
+function getImages(cont, n){
+    for(let image, i = 1; i <= n; i++ ){
+        image = new Image;
+        image.src = "./images/" + i + ".jpeg";
+        image.alt = "img"
+        cont.append(image);
+    };
+};
+getImages(imagesContainer, 4)
+
 
 mainContainer.append(arrowUp, arrowDown, textContainer, imagesContainer);
 
